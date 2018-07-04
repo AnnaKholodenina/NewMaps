@@ -10,6 +10,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -47,8 +48,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
         LatLng japan = new LatLng(36.01, 138.53);
-        googleMap.addMarker(new MarkerOptions().position(japan)
-                .title("Япония"));
+        googleMap.addMarker(new MarkerOptions()
+                .position(japan)
+                .title("Япония")
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.japan))
+                .flat(true)
+                .rotation(90));
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(JAPAN.getCenter(), 10));
 
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(japan, 6));
